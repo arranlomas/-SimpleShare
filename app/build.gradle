@@ -1,0 +1,69 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'realm-android'
+
+def globalConf = rootProject.ext
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "io.github.arranlomas.simpleshare"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+kapt {
+    generateStubs = true
+}
+
+dependencies {
+    Map<String, String> dependencies = globalConf.commonDependencies
+
+    androidTestImplementation (dependencies.espressoCore, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    androidTestImplementation dependencies.testRunner
+    testImplementation dependencies.jUnit
+
+    implementation dependencies.kotlinStdLib
+    implementation dependencies.appCompat
+    implementation dependencies.supportDesign
+
+    implementation project(':go-confluence')
+    implementation project(':torrentwrapper')
+
+    kapt dependencies.daggerCompiler
+    kapt dependencies.daggerAnnotationProcessor
+    implementation dependencies.dagger
+    implementation dependencies.daggerAndroidSupport
+
+    implementation dependencies.rxKotlin
+    implementation dependencies.rxAndroid
+    implementation dependencies.rxAndroid2
+    implementation dependencies.rxJava2
+    implementation dependencies.rxPermissions2
+
+    implementation dependencies.retrofit
+    implementation dependencies.retrofitRxAdapter
+    implementation dependencies.retrofitLogging
+    implementation dependencies.retrofitGson
+    implementation dependencies.retrofitRx2Adapter
+
+    implementation dependencies.multidex
+
+    implementation dependencies.stetho
+    implementation dependencies.stethoRealm
+}

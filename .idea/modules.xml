@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SImpleShare.iml" filepath="$PROJECT_DIR$/SImpleShare.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/confluencewrapper/confluencewrapper.iml" filepath="$PROJECT_DIR$/confluencewrapper/confluencewrapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/go-confluence/go-confluence.iml" filepath="$PROJECT_DIR$/go-confluence/go-confluence.iml" />
+      <module fileurl="file://$PROJECT_DIR$/torrentwrapper/torrentwrapper.iml" filepath="$PROJECT_DIR$/torrentwrapper/torrentwrapper.iml" />
+    </modules>
+  </component>
+</project>
