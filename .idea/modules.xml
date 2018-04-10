@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SImpleShare.iml" filepath="$PROJECT_DIR$/SImpleShare.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SimpleShare.iml" filepath="$PROJECT_DIR$/SimpleShare.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/confluencewrapper/confluencewrapper.iml" filepath="$PROJECT_DIR$/confluencewrapper/confluencewrapper.iml" />
       <module fileurl="file://$PROJECT_DIR$/go-confluence/go-confluence.iml" filepath="$PROJECT_DIR$/go-confluence/go-confluence.iml" />
