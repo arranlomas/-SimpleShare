@@ -9,7 +9,7 @@ import java.io.File
 /**
  * Created by arran on 10/04/2018.
  */
-class MainActivity: AppCompatActivity(){
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
