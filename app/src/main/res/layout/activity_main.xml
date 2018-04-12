@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <Button
         android:id="@+id/addFile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add File"/>
+        android:text="Add File" />
 
     <Button
         android:id="@+id/downloadFile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Download File"/>
+        android:text="Download File" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </ScrollView>
 
 
 </LinearLayout>

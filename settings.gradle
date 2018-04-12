@@ -1,1 +1,1 @@
-include ':app', ':confluencewrapper', ':torrentwrapper', ':go-confluence'
+include ':app', ':go-confluence', ':confluencewrapper', ':torrentwrapper'

@@ -66,4 +66,8 @@ dependencies {
 
     implementation dependencies.stetho
     implementation dependencies.stethoRealm
+
+    compile group: 'commons-io', name: 'commons-io', version: '2.5'
+    compile group: 'commons-codec', name: 'commons-codec', version: '1.11'
+
 }
