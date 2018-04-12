@@ -66,8 +66,11 @@ dependencies {
 
     implementation dependencies.stetho
     implementation dependencies.stethoRealm
+    implementation dependencies.glide
+    kapt dependencies.glideAnnotations
 
     compile group: 'commons-io', name: 'commons-io', version: '2.5'
     compile group: 'commons-codec', name: 'commons-codec', version: '1.11'
 
+    compile 'com.droidninja:filepicker:2.1.4'
 }
