@@ -1,25 +1,22 @@
 package io.github.arranlomas.simpleshare
 
 import android.Manifest
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.os.Environment
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.widget.Toast
 import com.schiwfty.torrentwrapper.confluence.Confluence
 import com.schiwfty.torrentwrapper.repositories.ITorrentRepository
-import com.schiwfty.torrentwrapper.utils.findHashFromMagnet
-import com.schiwfty.torrentwrapper.utils.findTrackersFromMagnet
 import com.schiwfty.torrentwrapper.utils.getMagnetLink
+import com.schiwfty.torrentwrapper.utils.openFile
 import com.tbruyelle.rxpermissions2.RxPermissions
 import droidninja.filepicker.FilePickerBuilder
-import io.reactivex.exceptions.CompositeException
+import droidninja.filepicker.FilePickerConst
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
-import droidninja.filepicker.FilePickerConst
-import android.app.Activity
-import android.content.Intent
-import android.widget.Toast
-
 
 /**
  * Created by arran on 10/04/2018.
@@ -49,7 +46,13 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     downloadFile.setOnClickListener {
-                        //TODO add dialog to add magnet
+                        showAddMagnetDialog({
+                            torrentRepository.downloadFile(it, { hash, torrent ->
+                                torrent.fileList.first().openFile(this, torrentRepository, {
+                                    Toast.makeText(this, "Error, could not open file", Toast.LENGTH_LONG).show()
+                                })
+                            })
+                        })
                     }
                 }
     }

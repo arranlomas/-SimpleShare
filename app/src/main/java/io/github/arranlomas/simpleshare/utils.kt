@@ -10,7 +10,8 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Context.CLIPBOARD_SERVICE
-
+import android.widget.EditText
+import com.afollestad.materialdialogs.MaterialDialog
 
 
 /**
@@ -50,4 +51,17 @@ fun String.copyToClipboard(context: Context, label: String){
     val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
     val clip = ClipData.newPlainText(label, this)
     clipboard.primaryClip = clip
+}
+
+fun Context.showAddMagnetDialog(onAddMagnet: (String) -> Unit) {
+    MaterialDialog.Builder(this)
+            .title(R.string.dialog_add_magnet_title)
+            .customView(R.layout.dialog_frag_add_magnet, true)
+            .positiveText(android.R.string.ok)
+            .onPositive({ dialog, _ ->
+                val magnetText = dialog.customView?.findViewById<EditText>(R.id.addMagnetDialogEditText)?.text?.toString()
+                magnetText?.let { onAddMagnet.invoke(it) }
+            })
+            .negativeText(android.R.string.cancel)
+            .show()
 }
