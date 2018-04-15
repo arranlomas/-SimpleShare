@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Simple Share</string>
     <string name="dialog_add_magnet_title">Paste magnet link here</string>
+    <string name="share">Share</string>
+    <string name="download">Download</string>
 
 </resources>

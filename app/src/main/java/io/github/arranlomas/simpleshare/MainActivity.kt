@@ -39,13 +39,13 @@ class MainActivity : AppCompatActivity() {
         torrentRepository = Confluence.torrentRepository
         RxPermissions(this).request(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .subscribe {
-                    addFile.setOnClickListener {
+                    uploadFab.setOnClickListener {
                         FilePickerBuilder.getInstance().setMaxCount(1)
                                 .setActivityTheme(R.style.LibAppTheme)
                                 .pickPhoto(this)
                     }
 
-                    downloadFile.setOnClickListener {
+                    downloadFab.setOnClickListener {
                         showAddMagnetDialog({
                             torrentRepository.downloadFile(it, { hash, torrent ->
                                 torrent.fileList.first().openFile(this, torrentRepository, {

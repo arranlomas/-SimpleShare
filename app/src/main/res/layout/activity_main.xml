@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/tools"
     android:orientation="vertical">
-
-    <Button
-        android:id="@+id/addFile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add File" />
-
-    <Button
-        android:id="@+id/downloadFile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Download File" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -26,6 +16,42 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </ScrollView>
+
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/main_activity_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="bottom|end"
+        fab:fab_addButtonColorNormal="@color/colorAccent"
+        fab:fab_addButtonColorPressed="@color/colorAccent"
+        fab:fab_addButtonPlusIconColor="@color/white"
+        fab:fab_labelStyle="@style/menu_labels_style"
+        fab:fab_labelsPosition="left"
+        android:layout_marginEnd="@dimen/default_medium_padding"
+        android:layout_marginBottom="@dimen/default_medium_padding">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/uploadFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_title="@string/share"
+            fab:fab_colorNormal="@color/colorAccent"
+            fab:fab_colorPressed="@color/colorAccent"
+            fab:fab_icon="@drawable/ic_share" />
+
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/downloadFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_title="@string/download"
+            fab:fab_colorNormal="@color/colorAccent"
+            fab:fab_colorPressed="@color/colorAccent"
+            fab:fab_icon="@drawable/ic_cloud_download" />
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
 
 </LinearLayout>
