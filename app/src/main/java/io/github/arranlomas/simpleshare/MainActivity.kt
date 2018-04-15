@@ -2,14 +2,13 @@ package io.github.arranlomas.simpleshare
 
 import android.Manifest
 import android.app.Activity
+import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
 import android.os.Environment
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
-import android.view.View
 import android.widget.Toast
 import com.schiwfty.torrentwrapper.confluence.Confluence
 import com.schiwfty.torrentwrapper.repositories.ITorrentRepository
@@ -18,13 +17,16 @@ import com.schiwfty.torrentwrapper.utils.openFile
 import com.tbruyelle.rxpermissions2.RxPermissions
 import droidninja.filepicker.FilePickerBuilder
 import droidninja.filepicker.FilePickerConst
+import io.github.arranlomas.simpleshare.base.BaseDaggerMviActivity
+import io.reactivex.Observable
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 
 /**
  * Created by arran on 10/04/2018.
  */
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseDaggerMviActivity<MainActions, MainResults, MainViewState>() {
+
     lateinit var torrentRepository: ITorrentRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +42,23 @@ class MainActivity : AppCompatActivity() {
                 }
 
         torrentRepository = Confluence.torrentRepository
+
+        val adapter = MainAdapter(itemClickListener = {
+
+        })
+        recyclerview.adapter = adapter
+        recyclerview.setHasFixedSize(true)
+        val llm = LinearLayoutManager(this)
+        recyclerview.layoutManager = llm as RecyclerView.LayoutManager?
+
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel::class.java)
+        super.setup(viewModel, { error ->
+        })
+        super.attachActions(actions(), MainActions.Load::class.java)
+    }
+
+    override fun onStart() {
+        super.onStart()
         RxPermissions(this).request(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .subscribe {
                     uploadFab.setOnClickListener {
@@ -58,15 +77,14 @@ class MainActivity : AppCompatActivity() {
                         })
                     }
                 }
-
-        val adapter = MainAdapter(itemClickListener = {
-
-        })
-        recyclerview.adapter = adapter
-        recyclerview.setHasFixedSize(true)
-        val llm = LinearLayoutManager(this)
-        recyclerview.layoutManager = llm as RecyclerView.LayoutManager?
     }
+
+    private fun actions() = Observable.merge(observables())
+
+    private fun observables(): List<Observable<MainActions>> = listOf(initialAction())
+
+    private fun initialAction(): Observable<MainActions> = Observable.just(MainActions.Load())
+
 
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         when (requestCode) {
@@ -81,5 +99,9 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun render(state: MainViewState) {
+        Log.v("Main State", state.toString())
     }
 }

@@ -34,7 +34,7 @@ private fun observables(shared: Observable<MainActions>, torrentRepository: ITor
 
 fun loadTorrents(torrentRepository: ITorrentRepository) =
         KontentActionProcessor<MainActions.Load, MainResults, List<TorrentInfo>>(
-                action = { action ->
+                action = {
                     torrentRepository.getAllTorrentsFromStorage()
                             .map {
                                 val results = mutableListOf<TorrentInfo>()
@@ -64,7 +64,7 @@ val torrentInfoReducer = KontentReducer { result: MainResults, previousState: Ma
 }
 
 sealed class MainActions : KontentAction() {
-    data class Load(val torrentHash: String, val trackers: List<String>?) : MainActions()
+    class Load : MainActions()
 }
 
 sealed class MainResults : KontentResult() {
