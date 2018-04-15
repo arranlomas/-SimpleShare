@@ -1,4 +1,4 @@
-package io.github.arranlomas.simpleshare
+package io.github.arranlomas.simpleshare.views.main
 
 import com.arranlomas.kontent.commons.objects.KontentContract
 

@@ -5,7 +5,7 @@ import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 import dagger.android.support.AndroidSupportInjectionModule
 import io.github.arranlomas.simpleshare.Application
-import io.github.arranlomas.simpleshare.MainActivityModule
+import io.github.arranlomas.simpleshare.views.main.MainActivityModule
 import javax.inject.Singleton
 
 /**

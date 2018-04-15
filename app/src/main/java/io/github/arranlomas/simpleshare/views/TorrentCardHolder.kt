@@ -1,9 +1,10 @@
-package io.github.arranlomas.simpleshare
+package io.github.arranlomas.simpleshare.views
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.schiwfty.torrentwrapper.models.TorrentInfo
 import com.schiwfty.torrentwrapper.utils.formatBytesAsSize
+import io.github.arranlomas.simpleshare.R
 import kotlinx.android.synthetic.main.list_item_torrent.view.*
 
 /**

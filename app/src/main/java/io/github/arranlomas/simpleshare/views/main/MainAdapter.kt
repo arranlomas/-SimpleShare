@@ -1,10 +1,12 @@
-package io.github.arranlomas.simpleshare
+package io.github.arranlomas.simpleshare.views.main
 
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import com.pawegio.kandroid.inflateLayout
 import com.schiwfty.torrentwrapper.models.TorrentInfo
 import com.schiwfty.torrentwrapper.utils.onClick
+import io.github.arranlomas.simpleshare.R
+import io.github.arranlomas.simpleshare.views.AllTorrentsCardHolder
 
 /**
  * Created by arran on 15/04/2018.

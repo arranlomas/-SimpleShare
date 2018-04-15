@@ -1,4 +1,4 @@
-package io.github.arranlomas.simpleshare
+package io.github.arranlomas.simpleshare.views.main
 
 import android.Manifest
 import android.app.Activity
@@ -17,6 +17,7 @@ import com.schiwfty.torrentwrapper.utils.openFile
 import com.tbruyelle.rxpermissions2.RxPermissions
 import droidninja.filepicker.FilePickerBuilder
 import droidninja.filepicker.FilePickerConst
+import io.github.arranlomas.simpleshare.*
 import io.github.arranlomas.simpleshare.base.BaseDaggerMviActivity
 import io.reactivex.Observable
 import kotlinx.android.synthetic.main.activity_main.*
@@ -84,7 +85,6 @@ class MainActivity : BaseDaggerMviActivity<MainActions, MainResults, MainViewSta
     private fun observables(): List<Observable<MainActions>> = listOf(initialAction())
 
     private fun initialAction(): Observable<MainActions> = Observable.just(MainActions.Load())
-
 
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         when (requestCode) {
