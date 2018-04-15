@@ -71,6 +71,9 @@ dependencies {
     implementation dependencies.materialDialog
     implementation dependencies.getBaseFAB
 
+    implementation dependencies.kandroid
+    implementation dependencies.carcview
+
     compile group: 'commons-io', name: 'commons-io', version: '2.5'
     compile group: 'commons-codec', name: 'commons-codec', version: '1.11'
 

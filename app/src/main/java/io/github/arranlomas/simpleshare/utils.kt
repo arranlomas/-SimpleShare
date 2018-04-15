@@ -10,6 +10,8 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Context.CLIPBOARD_SERVICE
+import android.support.v7.widget.RecyclerView
+import android.view.View
 import android.widget.EditText
 import com.afollestad.materialdialogs.MaterialDialog
 
@@ -64,4 +66,13 @@ fun Context.showAddMagnetDialog(onAddMagnet: (String) -> Unit) {
             })
             .negativeText(android.R.string.cancel)
             .show()
+}
+
+
+fun <T : RecyclerView.ViewHolder> T.onLongClick(event: (view: View, position: Int, type: Int) -> Unit): T {
+    itemView.setOnLongClickListener {
+        event.invoke(it, adapterPosition, itemViewType)
+        true
+    }
+    return this
 }

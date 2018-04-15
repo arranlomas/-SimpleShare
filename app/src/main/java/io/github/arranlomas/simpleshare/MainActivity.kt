@@ -6,7 +6,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Environment
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.schiwfty.torrentwrapper.confluence.Confluence
 import com.schiwfty.torrentwrapper.repositories.ITorrentRepository
@@ -55,6 +58,14 @@ class MainActivity : AppCompatActivity() {
                         })
                     }
                 }
+
+        val adapter = MainAdapter(itemClickListener = {
+
+        })
+        recyclerview.adapter = adapter
+        recyclerview.setHasFixedSize(true)
+        val llm = LinearLayoutManager(this)
+        recyclerview.layoutManager = llm as RecyclerView.LayoutManager?
     }
 
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

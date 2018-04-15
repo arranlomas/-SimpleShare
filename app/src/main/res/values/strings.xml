@@ -4,4 +4,7 @@
     <string name="share">Share</string>
     <string name="download">Download</string>
 
+    <string name="one_file">1 File</string>
+    <string name="x_files">%1$d Files</string>
+
 </resources>
