@@ -77,5 +77,14 @@ dependencies {
     compile group: 'commons-io', name: 'commons-io', version: '2.5'
     compile group: 'commons-codec', name: 'commons-codec', version: '1.11'
 
-    compile 'com.droidninja:filepicker:2.1.4'
+    implementation dependencies.filePicker
+
+    compile dependencies.lifecycleExtensions
+    kapt dependencies.lifecycleCompiler
+
+    compile project(':kontent-core')
+    compile project(':kontent-dagger-support')
+    compile project(':kontent-android-viewmodel')
+
+    implementation dependencies.daggerHelper
 }

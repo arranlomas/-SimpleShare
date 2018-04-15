@@ -1,8 +1,6 @@
 package io.github.arranlomas.simpleshare
 
-import android.support.v7.widget.PopupMenu
 import android.support.v7.widget.RecyclerView
-import android.view.View
 import android.view.ViewGroup
 import com.pawegio.kandroid.inflateLayout
 import com.schiwfty.torrentwrapper.models.TorrentInfo

@@ -69,5 +69,7 @@ ext {
 
             stetho: 'com.facebook.stetho:stetho:1.4.2',
             stethoRealm :  'com.uphyca:stetho_realm:2.0.1',
+
+            filePicker : 'com.droidninja:filepicker:2.1.4',
     ]
 }
